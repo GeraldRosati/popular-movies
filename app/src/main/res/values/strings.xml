@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">PopularMovies</string>
+
+    <!-- Menu Item Strings -->
     <string name="refresh">Refresh</string>
+
+    <!-- Error Messages -->
+    <string name="query_error_msg">Failed to get results, please check internet connection. </string>
 </resources>

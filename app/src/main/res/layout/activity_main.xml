@@ -10,7 +10,13 @@
         android:id="@+id/tv_movie_json"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    
+
+    <TextView
+        android:id="@+id/tv_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/query_error_msg" />
+
     <ProgressBar
         android:id="@+id/pb_loading_indicator"
         android:layout_width="42dp"
