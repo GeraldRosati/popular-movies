@@ -6,16 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.gmail.jerrycrosati.popularmovies.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_movie_json"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_movie_posters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
 
     <TextView
         android:id="@+id/tv_error_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/query_error_msg" />
+        android:text="@string/query_error_msg"
+        android:visibility="invisible"/>
 
     <ProgressBar
         android:id="@+id/pb_loading_indicator"
