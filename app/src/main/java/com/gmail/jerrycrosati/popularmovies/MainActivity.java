@@ -165,14 +165,21 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     public boolean onOptionsItemSelected(MenuItem item) {
         int clickedItemId = item.getItemId();
 
-        // Refresh the movie list maintaining the sort order.
-        if (clickedItemId == R.id.refresh) {
-            loadMovieData(_sortOrder);
-            return true;
+        switch (clickedItemId) {
+            case R.id.menu_item_refresh:
+                loadMovieData(_sortOrder);
+                break;
+            case R.id.menu_item_popularity:
+                loadMovieData("popular");
+                break;
+            case R.id.menu_item_rating:
+                loadMovieData("rating");
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        // TODO: Add sort order to the menu
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

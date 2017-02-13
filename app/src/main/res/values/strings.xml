@@ -3,6 +3,9 @@
 
     <!-- Menu Item Strings -->
     <string name="refresh">Refresh</string>
+    <string name="display_order">Display Order</string>
+    <string name="popularity">Popularity</string>
+    <string name="rating">Rating</string>
 
     <!-- Error Messages -->
     <string name="query_error_msg">Failed to retrieve movie results.</string>

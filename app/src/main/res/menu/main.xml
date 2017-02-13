@@ -2,8 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/refresh"
+        android:id="@+id/menu_item_refresh"
         android:orderInCategory="1"
         app:showAsAction="ifRoom"
         android:title="@string/refresh" />
+
+    <item
+        android:id="@+id/menu_display_order"
+        android:orderInCategory="2"
+        android:title="@string/display_order">
+        <menu>
+            <item
+                android:id="@+id/menu_item_popularity"
+                android:orderInCategory="1"
+                android:title="@string/popularity" />
+
+            <item
+                android:id="@+id/menu_item_rating"
+                android:orderInCategory="2"
+                android:title="@string/rating" />
+        </menu>
+    </item>
 </menu>
