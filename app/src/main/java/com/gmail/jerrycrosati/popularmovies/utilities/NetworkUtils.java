@@ -19,7 +19,7 @@ public class NetworkUtils {
     private static final String API_KEY_PARAM = "api_key";
 
     // The size of the movie poster to retrieve
-    private static final String SIZE_PATH = "w185";
+    private static final String SIZE_PATH = "w500";
 
     // Base URL strings
     private static final String MOVIE_DB_BASE_URL = "http://api.themoviedb.org/3/movie/";

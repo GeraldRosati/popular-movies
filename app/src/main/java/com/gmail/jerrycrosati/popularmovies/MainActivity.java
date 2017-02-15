@@ -1,5 +1,6 @@
 package com.gmail.jerrycrosati.popularmovies;
 
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,30 +24,49 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieAdapterOnClickHandler {
+
+    // Bundle Keys
+    public static final String SORT_ORDER = "SORT_ORDER";
+
+    // Sort order constants
+    public static final String POPULARITY_ORDER = "popular";
+    public static final String RATING_ORDER = "top_rated";
+
     // Movie Poster views
-    RecyclerView _posterRecyclerView;
-    MovieAdapter _movieAdapter;
+    private RecyclerView _posterRecyclerView;
+    private MovieAdapter _movieAdapter;
 
     // Displays an error message when data could not be retrieved from the Movie Database
-    TextView _errorMessageDisplay;
+    private TextView _errorMessageDisplay;
 
     // Displayed when getting a HTTP response
-    ProgressBar _loadingIndicator;
+    private ProgressBar _loadingIndicator;
 
     // The order to load the movie posters
-    String _sortOrder;
+    private String _sortOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Get the order to display the movie posters
+        if (savedInstanceState != null) {
+            _sortOrder = savedInstanceState.getString(SORT_ORDER);
+        }
+
         setContentView(R.layout.activity_main);
 
         _posterRecyclerView = (RecyclerView) findViewById(R.id.rv_movie_posters);
         _errorMessageDisplay = (TextView) findViewById(R.id.tv_error_message);
         _loadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
 
+        int numColumns = 2;
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            numColumns = 3;
+        }
+
         GridLayoutManager layoutManager =
-                new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+                new GridLayoutManager(this, numColumns, GridLayoutManager.VERTICAL, false);
 
         _posterRecyclerView.setLayoutManager(layoutManager);
         _posterRecyclerView.setHasFixedSize(true);
@@ -55,7 +75,17 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         _posterRecyclerView.setAdapter(_movieAdapter);
 
         // Initially, load the movie posters based on popularity
-        loadMovieData("popular");
+        if (_sortOrder == null) {
+            _sortOrder = POPULARITY_ORDER;
+        }
+
+        loadMovieData(_sortOrder);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(SORT_ORDER, _sortOrder);
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     /**
@@ -64,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
      * @param sortOrder The order to load the movie posters. Either by popularity or rating.
      */
     private void loadMovieData(String sortOrder) {
-        Log.i("loadMovieData", "inLoadMovieData");
         _sortOrder = sortOrder;
         new MovieDatabaseQueryTask().execute(sortOrder);
     }
@@ -170,12 +199,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
                 loadMovieData(_sortOrder);
                 break;
             case R.id.menu_item_popularity:
-                loadMovieData("popular");
+                loadMovieData(POPULARITY_ORDER);
                 break;
             case R.id.menu_item_rating:
-                loadMovieData("rating");
+                loadMovieData(RATING_ORDER);
                 break;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
