@@ -1,5 +1,6 @@
 package com.gmail.jerrycrosati.popularmovies;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -105,7 +106,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
      */
     @Override
     public void onClick(Movie movie) {
-        Toast.makeText(this, "Navigate to Movie activity!", Toast.LENGTH_LONG).show();
+        Intent startDetailsActivityIntent = new Intent(this, DetailsActivity.class);
+
+        // Send the movie information to the details activity
+        startDetailsActivityIntent.putExtra(Intent.EXTRA_TEXT, movie.getName());
+        startActivity(startDetailsActivityIntent);
     }
 
     /**

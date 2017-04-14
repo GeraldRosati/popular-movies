@@ -5,4 +5,8 @@
 
     <!-- Movie Poster Dimensions -->
     <dimen name="poster_margin_top">8dp</dimen>
+
+    <!-- Progress Bar Dimensions -->
+    <dimen name="progress_bar_width">42dp</dimen>
+    <dimen name="progress_bar_height">42dp</dimen>
 </resources>

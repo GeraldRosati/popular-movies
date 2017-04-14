@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">PopularMovies</string>
 
+    <string name="default_movie_title">Default Title</string>
+
     <!-- Menu Item Strings -->
     <string name="refresh">Refresh</string>
     <string name="display_order">Display Order</string>
