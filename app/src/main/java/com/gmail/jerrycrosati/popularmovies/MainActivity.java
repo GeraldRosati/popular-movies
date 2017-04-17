@@ -109,7 +109,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         Intent startDetailsActivityIntent = new Intent(this, DetailsActivity.class);
 
         // Send the movie information to the details activity
-        startDetailsActivityIntent.putExtra(Intent.EXTRA_TEXT, movie.getName());
+        Bundle b = new Bundle();
+        b.putString(Movie.MOVIE_TITLE_KEY, movie.getName());
+        b.putDouble(Movie.MOVIE_RATING_KEY, movie.getRating());
+        b.putString(Movie.MOVIE_SYNOPSIS_KEY, movie.getSynopsis());
+        startDetailsActivityIntent.putExtras(b);
         startActivity(startDetailsActivityIntent);
     }
 

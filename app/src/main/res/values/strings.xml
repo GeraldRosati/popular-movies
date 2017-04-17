@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">PopularMovies</string>
 
+    <!-- Details Activity Strings -->
+    <string name="movie_rating">%1$.1f/10</string>
     <string name="default_movie_title">Default Title</string>
+    <string name="default_movie_rating">0/10</string>
+    <string name="default_movie_synopsis">Default Synopsis</string>
 
     <!-- Menu Item Strings -->
     <string name="refresh">Refresh</string>

@@ -4,6 +4,11 @@ import com.gmail.jerrycrosati.popularmovies.utilities.NetworkUtils;
 import java.net.URL;
 
 public class Movie {
+    // Keys used when sending the intent from the MainActivity to the Details activity
+    public static String MOVIE_TITLE_KEY = "movie_title";
+    public static String MOVIE_RATING_KEY = "movie_rating";
+    public static String MOVIE_SYNOPSIS_KEY = "movie_synopsis";
+
     private URL _posterUrl;
     private String _posterPath;
     private String _name;
