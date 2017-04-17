@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         b.putString(Movie.MOVIE_TITLE_KEY, movie.getName());
         b.putDouble(Movie.MOVIE_RATING_KEY, movie.getRating());
         b.putString(Movie.MOVIE_SYNOPSIS_KEY, movie.getSynopsis());
+        b.putString(Movie.MOVIE_POSTER_URL_KEY, movie.getPosterUrl().toString());
         startDetailsActivityIntent.putExtras(b);
         startActivity(startDetailsActivityIntent);
     }

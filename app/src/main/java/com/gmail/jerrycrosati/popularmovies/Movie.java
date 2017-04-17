@@ -8,6 +8,7 @@ public class Movie {
     public static String MOVIE_TITLE_KEY = "movie_title";
     public static String MOVIE_RATING_KEY = "movie_rating";
     public static String MOVIE_SYNOPSIS_KEY = "movie_synopsis";
+    public static String MOVIE_POSTER_URL_KEY = "movie_poster_url";
 
     private URL _posterUrl;
     private String _posterPath;
