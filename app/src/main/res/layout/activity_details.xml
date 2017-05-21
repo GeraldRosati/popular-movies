@@ -9,7 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_movie_title"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_margin="@dimen/movie_title_margin"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -21,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/poster_margin_top"/>
+            android:layout_margin="@dimen/movie_poster_margin_top"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -33,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_movie_rating"
-                android:textSize="30sp" />
+                android:textSize="24sp"
+                android:layout_margin="@dimen/movie_rating_margin"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -42,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_movie_synopsis"
-        android:textSize="12sp" />
+        android:textSize="14sp"
+        android:layout_margin="@dimen/movie_synopsis_margin" />
 
 </LinearLayout>

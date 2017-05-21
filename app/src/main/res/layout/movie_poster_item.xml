@@ -10,6 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/poster_margin_top"/>
+        android:layout_marginTop="@dimen/movie_poster_margin_top"/>
 
 </GridLayout>
