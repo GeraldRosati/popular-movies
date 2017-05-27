@@ -6,11 +6,15 @@
 
     <TextView
         android:id="@+id/tv_movie_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginBottom="@dimen/movie_title_margin"
+        android:layout_gravity="center_vertical"
         android:text="@string/default_movie_title"
         android:textSize="30sp"
-        android:layout_margin="@dimen/movie_title_margin"/>
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_green_dark"/>
 
     <LinearLayout
         android:orientation="horizontal"
