@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FFEA00</color>
+    <color name="appBackground">#303030</color>
+
+    <!-- Details activity colors -->
+    <color name="movieTitleBackground">#00B0FF</color>
+    <color name="movieInfoText">@android:color/white</color>
 </resources>

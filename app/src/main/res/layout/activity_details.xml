@@ -2,19 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/appBackground">
 
     <TextView
         android:id="@+id/tv_movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="@dimen/movie_title_margin"
+        android:paddingTop="@dimen/movie_title_vertical_padding"
+        android:paddingBottom="@dimen/movie_title_vertical_padding"
+        android:paddingLeft="@dimen/movie_title_horizontal_padding"
+        android:paddingRight="@dimen/movie_title_horizontal_padding"
+        android:layout_marginBottom="@dimen/movie_title_horizontal_margin"
         android:layout_gravity="center_vertical"
         android:text="@string/default_movie_title"
-        android:textSize="30sp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_green_dark"/>
+        android:textSize="@dimen/movie_title_text_size"
+        android:textColor="@color/movieInfoText"
+        android:background="@color/movieTitleBackground"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -26,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/movie_poster_margin_top"/>
+            android:layout_marginLeft="@dimen/movie_poster_margin_left"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -37,9 +41,10 @@
                 android:id="@+id/tv_movie_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/movie_rating_margin"
                 android:text="@string/default_movie_rating"
-                android:textSize="24sp"
-                android:layout_margin="@dimen/movie_rating_margin"/>
+                android:textSize="@dimen/movie_rating_text_size"
+                android:textColor="@color/movieInfoText" />
         </LinearLayout>
     </LinearLayout>
 
@@ -47,8 +52,9 @@
         android:id="@+id/tv_movie_synopsis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/movie_synopsis_margin"
         android:text="@string/default_movie_synopsis"
-        android:textSize="14sp"
-        android:layout_margin="@dimen/movie_synopsis_margin" />
+        android:textSize="@dimen/movie_synopsis_text_size"
+        android:textColor="@color/movieInfoText"/>
 
 </LinearLayout>

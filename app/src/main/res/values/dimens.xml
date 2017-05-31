@@ -4,16 +4,22 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- Movie Title -->
-    <dimen name="movie_title_margin">8dp</dimen>
+    <dimen name="movie_title_vertical_padding">20dp</dimen>
+    <dimen name="movie_title_horizontal_padding">16dp</dimen>
+    <dimen name="movie_title_horizontal_margin">16dp</dimen>
+    <dimen name="movie_title_text_size">30sp</dimen>
 
     <!-- Movie Rating -->
-    <dimen name="movie_rating_margin">8dp</dimen>
+    <dimen name="movie_rating_margin">16dp</dimen>
+    <dimen name="movie_rating_text_size">24sp</dimen>
 
     <!-- Movie Poster -->
     <dimen name="movie_poster_margin_top">8dp</dimen>
+    <dimen name="movie_poster_margin_left">16dp</dimen>
 
     <!-- Movie Synopsis -->
-    <dimen name="movie_synopsis_margin">8dp</dimen>
+    <dimen name="movie_synopsis_margin">16dp</dimen>
+    <dimen name="movie_synopsis_text_size">14sp</dimen>
 
     <!-- Progress Bar Dimensions -->
     <dimen name="progress_bar_width">42dp</dimen>
