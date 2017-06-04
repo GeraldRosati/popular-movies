@@ -5,6 +5,9 @@
     <color name="colorAccent">#FFEA00</color>
     <color name="appBackground">#303030</color>
 
+    <!-- Main Activity Colors -->
+    <color name="errorMessageColor">@android:color/white</color>
+
     <!-- Details activity colors -->
     <color name="movieTitleBackground">#00B0FF</color>
     <color name="movieInfoText">@android:color/white</color>

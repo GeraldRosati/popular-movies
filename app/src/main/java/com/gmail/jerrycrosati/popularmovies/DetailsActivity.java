@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -15,6 +14,11 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView _movieRatingText;
     private TextView _movieSynopsisText;
     private ImageView _moviePosterImage;
+
+    private double _movieRating;
+    private String _movieTitle;
+    private String _movieSynopsis;
+    private String _moviePosterUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,20 +34,36 @@ public class DetailsActivity extends AppCompatActivity {
         Bundle extras = movieIntent.getExtras();
 
         if (extras != null) {
-            // Get the movie information
-            double movieRating = extras.getDouble(Movie.MOVIE_RATING_KEY);
-            String movieTitle = extras.getString(Movie.MOVIE_TITLE_KEY);
-            String movieSynopsis = extras.getString(Movie.MOVIE_SYNOPSIS_KEY);
-            String moviePosterUrl = extras.getString(Movie.MOVIE_POSTER_URL_KEY);
-
-            // Display the movie information
-            Resources res = getResources();
-            String movieRatingString = res.getString(R.string.movie_rating, movieRating);
-
-            _movieRatingText.setText(movieRatingString);
-            _movieTitleText.setText(movieTitle);
-            _movieSynopsisText.setText(movieSynopsis);
-            Picasso.with(this).load(moviePosterUrl).into(_moviePosterImage);
+            getMovieData(extras);
+            displayMovieInformation();
         }
+    }
+
+    /**
+     * Get the movie data.
+     *
+     * @param extras The bundle containing the movie information.
+     */
+    private void getMovieData(Bundle extras)
+    {
+        // Get the movie information
+        _movieRating = extras.getDouble(Movie.MOVIE_RATING_KEY);
+        _movieTitle = extras.getString(Movie.MOVIE_TITLE_KEY);
+        _movieSynopsis = extras.getString(Movie.MOVIE_SYNOPSIS_KEY);
+        _moviePosterUrl = extras.getString(Movie.MOVIE_POSTER_URL_KEY);
+    }
+
+    /**
+     * Display the movie information.
+     */
+    private void displayMovieInformation()
+    {
+        Resources res = getResources();
+        String movieRatingString = res.getString(R.string.movie_rating, _movieRating);
+
+        _movieRatingText.setText(movieRatingString);
+        _movieTitleText.setText(_movieTitle);
+        _movieSynopsisText.setText(_movieSynopsis);
+        Picasso.with(this).load(_moviePosterUrl).into(_moviePosterImage);
     }
 }

@@ -1,18 +1,13 @@
 package com.gmail.jerrycrosati.popularmovies.utilities;
 
-import android.net.Network;
-import android.util.Log;
-
 import com.gmail.jerrycrosati.popularmovies.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MovieDatabaseJsonUtils {
     /**
@@ -22,6 +17,7 @@ public class MovieDatabaseJsonUtils {
      * @return A list of movies
      * @throws JSONException
      */
+
     public static ArrayList<Movie> getMovieDataFromJson(String movieJsonStr) throws JSONException {
         // Movie Information
         final String MDB_RESULTS = "results";

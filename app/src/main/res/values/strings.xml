@@ -5,7 +5,9 @@
     <string name="movie_rating">%1$.1f/10</string>
     <string name="default_movie_title">Default Title</string>
     <string name="default_movie_rating">0/10</string>
+    <string name="default_movie_release_date">Default Release Date</string>
     <string name="default_movie_synopsis">Default Synopsis</string>
+    <string name="movie_poster_description">Movie Poster</string>
 
     <!-- Menu Item Strings -->
     <string name="refresh">Refresh</string>

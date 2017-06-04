@@ -11,12 +11,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapterViewHolder> {
+class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapterViewHolder> {
 
     private ArrayList<Movie> _movieData;
     private final MovieAdapterOnClickHandler _clickHandler;
 
-    public interface MovieAdapterOnClickHandler {
+    interface MovieAdapterOnClickHandler {
         void onClick(Movie movieInfo);
     }
 
@@ -25,14 +25,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
      *
      * @param clickHandler The on-click handler for the adapter. Called when an item is clicked.
      */
-    public MovieAdapter(MovieAdapterOnClickHandler clickHandler) {
+    MovieAdapter(MovieAdapterOnClickHandler clickHandler) {
         _clickHandler = clickHandler;
     }
 
-    public class MovieAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final ImageView _posterImageView;
+    class MovieAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        final ImageView _posterImageView;
 
-        public MovieAdapterViewHolder(View view) {
+        MovieAdapterViewHolder(View view) {
             super(view);
             _posterImageView = (ImageView) view.findViewById(R.id.iv_movie_poster);
             view.setOnClickListener(this);
@@ -95,6 +95,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
         if (_movieData == null) {
             return 0;
         }
+
         return _movieData.size();
     }
 
@@ -103,7 +104,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
      *
      * @param movieData The updated movie data to be displayed
      */
-    public void setMovieData(ArrayList<Movie> movieData) {
+    void setMovieData(ArrayList<Movie> movieData) {
         _movieData = movieData;
         notifyDataSetChanged();
     }

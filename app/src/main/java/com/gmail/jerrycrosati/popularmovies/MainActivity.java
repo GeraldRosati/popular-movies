@@ -7,13 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gmail.jerrycrosati.popularmovies.utilities.MovieDatabaseJsonUtils;
 import com.gmail.jerrycrosati.popularmovies.utilities.NetworkUtils;
@@ -27,11 +25,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieAdapterOnClickHandler {
 
     // Bundle Keys
-    public static final String SORT_ORDER = "SORT_ORDER";
+    private static final String SORT_ORDER = "SORT_ORDER";
 
     // Sort order constants
-    public static final String POPULARITY_ORDER = "popular";
-    public static final String RATING_ORDER = "top_rated";
+    private static final String POPULARITY_ORDER = "popular";
+    private static final String RATING_ORDER = "top_rated";
 
     // Movie Poster views
     private RecyclerView _posterRecyclerView;
@@ -134,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         _posterRecyclerView.setVisibility(View.INVISIBLE);
     }
 
-    public class MovieDatabaseQueryTask extends AsyncTask<String, Void, ArrayList<Movie>> {
+    private class MovieDatabaseQueryTask extends AsyncTask<String, Void, ArrayList<Movie>> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -185,8 +183,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     /**
      * Called when the options menu is created
      *
-     * @param menu
-     * @return
+     * @param menu The menu object.
+     * @return True if the options menu was created correctly.
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -197,8 +195,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     /**
      * Called when an item in the menu is selected.
      *
-     * @param item The selected item
-     * @return
+     * @param item The selected item.
+     * @return True The click event will be consumed by onOptionsItemSelected().
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

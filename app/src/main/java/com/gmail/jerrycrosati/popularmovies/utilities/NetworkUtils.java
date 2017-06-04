@@ -1,8 +1,6 @@
 package com.gmail.jerrycrosati.popularmovies.utilities;
 
 import android.net.Uri;
-import android.net.wifi.ScanResult;
-import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;

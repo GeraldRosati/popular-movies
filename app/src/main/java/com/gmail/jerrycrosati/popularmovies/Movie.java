@@ -5,10 +5,10 @@ import java.net.URL;
 
 public class Movie {
     // Keys used when sending the intent from the MainActivity to the Details activity
-    public static String MOVIE_TITLE_KEY = "movie_title";
-    public static String MOVIE_RATING_KEY = "movie_rating";
-    public static String MOVIE_SYNOPSIS_KEY = "movie_synopsis";
-    public static String MOVIE_POSTER_URL_KEY = "movie_poster_url";
+    public static final String MOVIE_TITLE_KEY = "movie_title";
+    public static final String MOVIE_RATING_KEY = "movie_rating";
+    public static final String MOVIE_SYNOPSIS_KEY = "movie_synopsis";
+    public static final String MOVIE_POSTER_URL_KEY = "movie_poster_url";
 
     private URL _posterUrl;
     private String _posterPath;
