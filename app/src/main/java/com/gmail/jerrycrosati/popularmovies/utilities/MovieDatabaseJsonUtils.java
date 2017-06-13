@@ -1,5 +1,7 @@
 package com.gmail.jerrycrosati.popularmovies.utilities;
 
+import android.content.res.Resources;
+
 import com.gmail.jerrycrosati.popularmovies.Movie;
 
 import org.json.JSONArray;
@@ -7,7 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class MovieDatabaseJsonUtils {
     /**
@@ -17,7 +24,6 @@ public class MovieDatabaseJsonUtils {
      * @return A list of movies
      * @throws JSONException
      */
-
     public static ArrayList<Movie> getMovieDataFromJson(String movieJsonStr) throws JSONException {
         // Movie Information
         final String MDB_RESULTS = "results";
@@ -69,6 +75,7 @@ public class MovieDatabaseJsonUtils {
             String posterPath;
             String title;
             String overview;
+            String releaseDate;
             double rating;
 
             // Retrieve the movie information from the JSON
@@ -76,14 +83,41 @@ public class MovieDatabaseJsonUtils {
             posterPath = movie.getString(MDB_POSTER_PATH);
             title = movie.getString(MDB_TITLE);
             overview = movie.getString(MDB_SYNOPSIS);
+            releaseDate = movie.getString(MDB_RELEASE_DATE);
             rating = movie.getDouble(MDB_RATING);
 
+            // Format the release date
+            releaseDate = formatReleaseDateString(releaseDate);
+
             // Create the URL for the movie poster
-            Movie movieData = new Movie(posterPath, title, overview, rating);
+            Movie movieData = new Movie(posterPath, title, overview, releaseDate, rating);
             movieData.setPosterUrl(NetworkUtils.buildMoviePosterUrl(posterPath));
             parsedMovieData.add(movieData);
         }
 
         return parsedMovieData;
+    }
+
+    /**
+     * Format the release date in mm/dd/yyyy format.
+     *
+     * @param releaseDate The release date string to format.
+     * @return The formatted release date string.
+     */
+    private static String formatReleaseDateString(String releaseDate)
+    {
+        DateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
+        DateFormat displayedFormat = new SimpleDateFormat("mm/dd/yyyy", Locale.ENGLISH);
+        String formattedReleaseDate = "";
+
+        try {
+            Date date = inputFormat.parse(releaseDate);
+            formattedReleaseDate = displayedFormat.format(date);
+
+        } catch (final ParseException e) {
+            e.printStackTrace();
+        }
+
+        return formattedReleaseDate;
     }
 }

@@ -8,12 +8,14 @@ public class Movie {
     public static final String MOVIE_TITLE_KEY = "movie_title";
     public static final String MOVIE_RATING_KEY = "movie_rating";
     public static final String MOVIE_SYNOPSIS_KEY = "movie_synopsis";
+    public static final String MOVIE_RELEASE_DATE_KEY = "movie_release_date";
     public static final String MOVIE_POSTER_URL_KEY = "movie_poster_url";
 
     private URL _posterUrl;
     private String _posterPath;
     private String _name;
     private String _synopsis;
+    private String _releaseDate;
     private double _rating;
 
     public Movie() {
@@ -21,14 +23,16 @@ public class Movie {
         _posterPath = "";
         _name = "";
         _synopsis = "";
+        _releaseDate = "";
         _rating = 0;
     }
 
-    public Movie(String path, String name, String synopsis, double rating) {
+    public Movie(String path, String name, String synopsis, String releaseDate, double rating) {
         _posterUrl = NetworkUtils.buildMoviePosterUrl(path);
         _posterPath = path;
         _name = name;
         _synopsis = synopsis;
+        _releaseDate = releaseDate;
         _rating = rating;
     }
 
@@ -62,6 +66,16 @@ public class Movie {
 
     public String getSynopsis() {
         return _synopsis;
+    }
+
+    public void setReleaseDate(String releaseDate)
+    {
+        _releaseDate = releaseDate;
+    }
+
+    public String getReleaseDate()
+    {
+        return _releaseDate;
     }
 
     public void setRating(double rating) {

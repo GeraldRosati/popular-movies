@@ -13,11 +13,13 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView _movieTitleText;
     private TextView _movieRatingText;
     private TextView _movieSynopsisText;
+    private TextView _movieReleaseDateText;
     private ImageView _moviePosterImage;
 
     private double _movieRating;
     private String _movieTitle;
     private String _movieSynopsis;
+    private String _movieReleaseDate;
     private String _moviePosterUrl;
 
     @Override
@@ -28,6 +30,7 @@ public class DetailsActivity extends AppCompatActivity {
         _movieTitleText = (TextView) findViewById(R.id.tv_movie_title);
         _movieRatingText = (TextView) findViewById(R.id.tv_movie_rating);
         _movieSynopsisText = (TextView) findViewById(R.id.tv_movie_synopsis);
+        _movieReleaseDateText = (TextView) findViewById(R.id.tv_movie_release_date);
         _moviePosterImage = (ImageView) findViewById(R.id.iv_details_movie_poster);
 
         Intent movieIntent = getIntent();
@@ -50,6 +53,7 @@ public class DetailsActivity extends AppCompatActivity {
         _movieRating = extras.getDouble(Movie.MOVIE_RATING_KEY);
         _movieTitle = extras.getString(Movie.MOVIE_TITLE_KEY);
         _movieSynopsis = extras.getString(Movie.MOVIE_SYNOPSIS_KEY);
+        _movieReleaseDate = extras.getString(Movie.MOVIE_RELEASE_DATE_KEY);
         _moviePosterUrl = extras.getString(Movie.MOVIE_POSTER_URL_KEY);
     }
 
@@ -64,6 +68,7 @@ public class DetailsActivity extends AppCompatActivity {
         _movieRatingText.setText(movieRatingString);
         _movieTitleText.setText(_movieTitle);
         _movieSynopsisText.setText(_movieSynopsis);
+        _movieReleaseDateText.setText(_movieReleaseDate);
         Picasso.with(this).load(_moviePosterUrl).into(_moviePosterImage);
     }
 }
