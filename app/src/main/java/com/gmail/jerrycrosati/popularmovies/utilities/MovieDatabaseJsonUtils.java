@@ -1,7 +1,5 @@
 package com.gmail.jerrycrosati.popularmovies.utilities;
 
-import android.content.res.Resources;
-
 import com.gmail.jerrycrosati.popularmovies.Movie;
 
 import org.json.JSONArray;
@@ -22,7 +20,7 @@ public class MovieDatabaseJsonUtils {
      *
      * @param movieJsonStr Data retrieved from the Movie Database in JSON format
      * @return A list of movies
-     * @throws JSONException
+     * @throws JSONException If the JSON can't be parsed.
      */
     public static ArrayList<Movie> getMovieDataFromJson(String movieJsonStr) throws JSONException {
         // Movie Information
@@ -106,8 +104,8 @@ public class MovieDatabaseJsonUtils {
      */
     private static String formatReleaseDateString(String releaseDate)
     {
-        DateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.ENGLISH);
-        DateFormat displayedFormat = new SimpleDateFormat("mm/dd/yyyy", Locale.ENGLISH);
+        DateFormat inputFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.US);
+        DateFormat displayedFormat = new SimpleDateFormat("mm/dd/yy", Locale.US);
         String formattedReleaseDate = "";
 
         try {

@@ -14,8 +14,8 @@
 
     <!-- Movie Info Text Sizes -->
     <dimen name="movie_title_text_size">34sp</dimen>
-    <dimen name="movie_release_date_text_size">30sp</dimen>
-    <dimen name="movie_rating_text_size">20sp</dimen>
+    <dimen name="movie_release_date_text_size">24sp</dimen>
+    <dimen name="movie_rating_text_size">16sp</dimen>
     <dimen name="movie_synopsis_text_size">14sp</dimen>
 
     <!-- Progress Bar Dimensions -->
